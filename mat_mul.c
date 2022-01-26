@@ -5,15 +5,15 @@
 int** initializeZero(int dim_x,int dim_y)
 {
     int i,j;
-    int** arr1= (int**)malloc(dim_x1*sizeof(int*));
-    for (i = 0; i < dim_x1; i++)
+    int** arr1= (int**)malloc(dim_x*sizeof(int*));
+    for (i = 0; i < dim_x; i++)
     {
-        arr1[i] = (int*)malloc(dim_y1*sizeof(int));
+        arr1[i] = (int*)malloc(dim_y*sizeof(int));
     }
     printf("Enter the elements of matrix :\n");
-    for (i = 0; i < dim_x1; i++)
+    for (i = 0; i < dim_x; i++)
     {
-        for (j = 0; j < dim_y1; j++)
+        for (j = 0; j < dim_y; j++)
         {
             arr1[i][j] = 0;
             // scanf("%d",&arr1[i][j]);
@@ -27,15 +27,15 @@ int** initializeZero(int dim_x,int dim_y)
 int** initialize(int dim_x,int dim_y)
 {
     int i,j;
-    int** arr1= (int**)malloc(dim_x1*sizeof(int*));
-    for (i = 0; i < dim_x1; i++)
+    int** arr1= (int**)malloc(dim_x*sizeof(int*));
+    for (i = 0; i < dim_x; i++)
     {
-        arr1[i] = (int*)malloc(dim_y1*sizeof(int));
+        arr1[i] = (int*)malloc(dim_y*sizeof(int));
     }
     printf("Enter the elements of matrix :\n");
-    for (i = 0; i < dim_x1; i++)
+    for (i = 0; i < dim_x; i++)
     {
-        for (j = 0; j < dim_y1; j++)
+        for (j = 0; j < dim_y; j++)
         {
             scanf("%d",&arr1[i][j]);
         }
@@ -63,6 +63,20 @@ int** matmul(int** a,int** b,int dim_x1,int dim_y2,int common_dim)
         }
         
     }
+    return c;
+}
+
+void printMat(int** a,int dim_x,int dim_y)
+{
+    int i,j;
+    for (i = 0; i < dim_x; i++)
+    {
+        for (j = 0; j < dim_y; j++)
+        {
+            printf("%d ",*(*(a+i)+j));
+        }
+        printf("\n");
+    }
 }
 
 int main()
@@ -80,5 +94,7 @@ int main()
     int** arr1=initialize(dim_x1,dim_y1);
     int** arr2=initialize(dim_x2,dim_y2);
     int** arr3=matmul(arr1,arr2,dim_x1,dim_y2,dim_y1);
+    printf("The resultant matrix is :\n");
+    printMat(arr3,dim_x1,dim_y2);
     return 0;
 }
