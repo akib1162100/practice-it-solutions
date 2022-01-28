@@ -3,8 +3,7 @@
 
 long factorial(long x)
 {
-    long fac = 1;
-    int i;
+    // long fac = 1;
     if(x<0)
     {
         printf("factorial can't be negative\n");
@@ -18,12 +17,9 @@ long factorial(long x)
     {
         return x;
     }
-    for (i=1;i<=x;i++)
-    {
-        fac = fac * i;
-    }
-    return fac;
-    }
+    // fac = fac * factorial(x-1)
+    return (x*factorial(x-1));
+}
 
 
 int main()
